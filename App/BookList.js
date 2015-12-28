@@ -1,4 +1,5 @@
 var React = require('react-native');
+var BookDetail = require('./BookDetail');
 
 var {
 	StyleSheet,
@@ -51,14 +52,15 @@ class BookList extends React.Component{
 	renderLoadingView(){
 		return(
 			<View style={styles.loading}>
-				<ActivityIndicatorIOS />
+				<ActivityIndicatorIOS
+					size='large' />
 					<Text>Loading...</Text>
 			</View>
 		);
 	}
 	renderBook(book){
 		return(
-			<TouchableHighlight>
+			<TouchableHighlight onPress={() => this.showBookDetail(book)}  underlayColor='white'>
 				<View>
 					<View style={styles.container}>
 		                <Image 
@@ -73,6 +75,14 @@ class BookList extends React.Component{
 		    </TouchableHighlight>
 		);
 	}
+	showBookDetail(book) {
+	       this.props.navigator.push({
+	           title: book.volumeInfo.title,
+	           component: BookDetail,
+	           passProps: {book}
+	       });
+	   }
+
 }
 
 var styles = StyleSheet.create({
