@@ -5,29 +5,72 @@ var {
 	View,
 	Text,
 	View,
-	Image
+	Image,
+	ListView,
+	TouchableHighlight,
+	ActivityIndicatorIOS
 } = React;
 
-var BOOKS_DATA = [
-    {volumeInfo: {
-    	title: 'The Google story', 
-    	authors: "David A. Vise", 
-    	imageLinks: {thumbnail: 'https://books.google.com/books?id=zyTCAlFPjgYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'}}}
-];
+var URL = 'https://www.googleapis.com/books/v1/volumes?q=subject:fiction'
 
 class BookList extends React.Component{
+	constructor(props){
+		super(props);
+		this.state = {
+			isLoading: true,
+			dataSource: new ListView.DataSource({
+				rowHasChanged: (row1, row2) => row1 !== row2
+			})
+		};
+	}
+	componentDidMount(){
+		this.fetchData();
+		}
+		fetchData(){
+			fetch(URL)
+			.then((response) => response.json())
+			.then((responseData) => {
+				this.setState({
+					dataSource: this.state.dataSource.cloneWithRows(responseData.items),
+					isLoading: false
+				});
+			})
+			.done();
+		}
 	render(){
-		var book = BOOKS_DATA[0];
+		if (this.state.isLoading){
+				return this.renderLoadingView();
+			}
+			return (
+				<ListView 
+					dataSource={this.state.dataSource}
+					renderRow={this.renderBook.bind(this)}
+					style={styles.ListView}	/>
+		);
+	}
+	renderLoadingView(){
 		return(
-			<View style={styles.container}>
-                <Image 
-                	source={{uri: book.volumeInfo.imageLinks.thumbnail}}
-                    style={styles.thumbnail} />
-                <View style={styles.rightContainer}>
-                    <Text style={styles.title}>{book.volumeInfo.title}</Text>
-                    <Text style={styles.author}>{book.volumeInfo.authors}</Text>
-                </View>
-            </View>
+			<View style={styles.loading}>
+				<ActivityIndicatorIOS />
+					<Text>Loading...</Text>
+			</View>
+		);
+	}
+	renderBook(book){
+		return(
+			<TouchableHighlight>
+				<View>
+					<View style={styles.container}>
+		                <Image 
+		                	source={{uri: book.volumeInfo.imageLinks.thumbnail}}
+		                    style={styles.thumbnail} />
+		                <View style={styles.rightContainer}>
+		                    <Text style={styles.title}>{book.volumeInfo.title}</Text>
+		                    <Text style={styles.author}>{book.volumeInfo.authors}</Text>
+		                </View>
+		            </View>
+		        </View>
+		    </TouchableHighlight>
 		);
 	}
 }
@@ -56,6 +99,18 @@ var styles = StyleSheet.create({
 	    },
 	    author: {
 	        color: '#656565'
+	    },
+	    separator: {
+	    	height: 1,
+	    	backgroundColor: '#5c5cd6'
+	    },
+	    ListView: {
+	    	backgroundColor: '#F5FCFF'
+	    },
+	    loading: {
+	    	flex: 1,
+	    	alignItems: 'center',
+	    	justifyContent: 'center'
 	    }
 	});
 
