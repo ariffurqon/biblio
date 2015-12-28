@@ -3,12 +3,11 @@ var React = require('react-native');
 var {
 	StyleSheet,
 	View,
-	Text,
-	Component
+	Text
 } = React;
 
 class Search extends React.Component{
-	render({
+	render(){
 		return(
 			<View style={styles.container}>
 				<Text style={styles.description}>
@@ -16,12 +15,12 @@ class Search extends React.Component{
 				</Text>
 			</View>
 		)
-	})
+	}
 }
 
 var styles = StyleSheet.create({
 	description: {
-		fontsize: 20,
+		fontSize: 20,
 		backgroundColor: 'white'
 	},
 	container: {

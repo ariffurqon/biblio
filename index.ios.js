@@ -1,6 +1,6 @@
 var React = require('react-native');
 var Featured = require('./App/Featured');
-var Search = require('./App/Featured');
+var Search = require('./App/Search');
 
 var {
   AppRegistry,
