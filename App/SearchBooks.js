@@ -97,9 +97,11 @@ fetchData() {
 
 var styles = StyleSheet.create({
     container: {
+        flex: 1,
         marginTop: 65,
         padding: 10,
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor: '#C5CAE9'
     },
     searchInput: {
         height: 36,
@@ -108,13 +110,13 @@ var styles = StyleSheet.create({
         fontSize: 18,
         borderWidth: 1,
         flex: 1,
-        borderRadius: 4,
+        borderRadius: 0,
         padding: 5
     },
     button: {
         height: 36,
-        backgroundColor: '#3D87F5',
-        borderRadius: 8,
+        backgroundColor: '#F50057',
+        borderRadius: 0,
         justifyContent: 'center',
         marginTop: 15
     },

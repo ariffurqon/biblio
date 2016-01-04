@@ -62,18 +62,19 @@ var styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: '#C5CAE9'
     },
     title: {
         fontSize: 20,
         marginBottom: 8
     },
     author: {
-        color: '#656565'
+        color: '#303F9F'
     },
     separator: {
         height: 1,
-        backgroundColor: '#dddddd'
+        backgroundColor: '#303F9F'
     },
     listView: {
         backgroundColor: '#F5FCFF'

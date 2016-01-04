@@ -16,7 +16,7 @@ class Biblio extends React.Component{
   }
   render() {
     return (
-      <TabBarIOS selectedTab={this.state.selectedTab}>
+      <TabBarIOS barTintColor="#303F9F" tintColor="#F50057" selectedTab={this.state.selectedTab}>
         <TabBarIOS.Item
             selected={this.state.selectedTab === 'featured'}
             systemIcon="featured"

@@ -24,8 +24,10 @@ class BookDetail extends Component {
  
 var styles = StyleSheet.create({
     container: {
-         marginTop: 75,
-         alignItems: 'center'
+         marginTop: 65,
+         alignItems: 'center',
+         backgroundColor: '#C5CAE9',
+         flex: 1
     },
     image: {
          width: 107,

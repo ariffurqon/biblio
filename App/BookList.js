@@ -13,7 +13,6 @@ var {
 } = React;
 
 var URL = 'https://www.googleapis.com/books/v1/volumes?q=subject:fiction'
-
 class BookList extends React.Component{
 	constructor(props){
 		super(props);
@@ -60,7 +59,7 @@ class BookList extends React.Component{
 	}
 	renderBook(book){
 		return(
-			<TouchableHighlight onPress={() => this.showBookDetail(book)}  underlayColor='white'>
+			<TouchableHighlight onPress={() => this.showBookDetail(book)}  underlayColor='purple'>
 				<View>
 					<View style={styles.container}>
 		                <Image 
@@ -91,7 +90,7 @@ var styles = StyleSheet.create({
 	        flexDirection: 'row',
 	        justifyContent: 'center',
 	        alignItems: 'center',
-	        backgroundColor: '#F5FCFF',
+	        backgroundColor: '#C5CAE9',
 	        padding: 10
 	    },
 	    thumbnail: {
@@ -100,22 +99,21 @@ var styles = StyleSheet.create({
 	        marginRight: 10
 	    },
 	    rightContainer: {
-	        flex: 1,
-	        // backgroundColor: '#e5f2ff'
+	        flex: 1
 	    },
 	    title: {
 	        fontSize: 20,
 	        marginBottom: 8
 	    },
 	    author: {
-	        color: '#656565'
+	        color: '#303F9F' //blue
 	    },
 	    separator: {
 	    	height: 1,
-	    	backgroundColor: '#5c5cd6'
+	    	backgroundColor: '#F50057'
 	    },
 	    ListView: {
-	    	backgroundColor: '#F5FCFF'
+	    	backgroundColor: '#F50057' // red hot pink
 	    },
 	    loading: {
 	    	flex: 1,
