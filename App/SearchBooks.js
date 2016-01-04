@@ -110,13 +110,13 @@ var styles = StyleSheet.create({
         fontSize: 18,
         borderWidth: 1,
         flex: 1,
-        borderRadius: 0,
+        borderRadius: 4,
         padding: 5
     },
     button: {
         height: 36,
         backgroundColor: '#F50057',
-        borderRadius: 0,
+        borderRadius: 4,
         justifyContent: 'center',
         marginTop: 15
     },
