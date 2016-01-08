@@ -16,7 +16,7 @@ $ brew install watchman
 ##### clone this repo: #####
 
 ```
-$ cd react-native-biblio
+$ cd biblio
 $ npm install
 $ open biblioApp.xcodeproj
 ```
